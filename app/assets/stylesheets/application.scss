@@ -10,3 +10,14 @@ html, body {
   background-image: linear-gradient(#ffffff,#e8f4f5);
   background-color: whitesmoke;
 }
+
+p {
+  &.notice, &.alert {
+    text-align: center;
+    padding-top: 0.5em;
+    font-weight: 600;
+  }
+  &.alert {
+    color: #f27537;
+  }
+}

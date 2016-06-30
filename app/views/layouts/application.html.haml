@@ -7,6 +7,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    -if notice
+      %p(class="notice")= notice
+    -if alert
+      %p(class="alert")= alert
+
     = render 'shared/navigation'
 
     = yield

@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 gem 'kaminari'
 gem 'nokogiri'
+gem 'devise'
+gem 'omniauth-facebook'
 
 # frontend gems
 gem 'bourbon'
