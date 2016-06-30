@@ -1,6 +1,7 @@
 @import "vendor/vendor";
 @import "theme/theme";
 @import "components/components";
+@import "devise";
 @import "pages";
 
 // font-setup
@@ -8,7 +9,7 @@
   $base-border-radius: 3px !default;
   $base-line-height: 1.5em !default;
   $base-spacing: 1.5em !default;
-  $action-color: #477dca !default;
+  $action-color: #f47638 !default;
   $dark-gray: #333 !default;
   $light-gray: #ddd !default;
   $medium-screen: 40em !default;
@@ -27,6 +28,12 @@
     margin: 0;
   }
 
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.5em !important;
+  }
+
   hr {
     border-bottom: 1px solid $light-gray;
     border-left: 0;
@@ -41,8 +48,11 @@
   }
 
   a {
-    color: $action-color;
+    color: $base-font-color;
     text-decoration: none;
+    &:hover, &:focus, &:active {
+      color: $primary-color;
+    }
   }
 
   .type {
@@ -164,6 +174,7 @@ p {
     text-align: center;
     padding-top: 0.5em;
     font-weight: 600;
+    margin-bottom: 0.5em;
   }
   &.alert {
     color: #f27537;

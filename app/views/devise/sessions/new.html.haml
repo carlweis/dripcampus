@@ -1,0 +1,20 @@
+%section{:class => "account-container"}
+  %h2 Log in
+  %div{:class => "account-form"}
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :email
+        = f.email_field :email, autofocus: true
+      .field
+        = f.label :password
+        = f.password_field :password, autocomplete: "off"
+      - if devise_mapping.rememberable?
+        .field
+          = f.label :remember_me do
+            = f.check_box :remember_me, :class => "checkbox"
+            %span Remember me
+
+      .actions
+        = f.submit "Log in", :class => "button primary block"
+  %div{:class => "account-links"}
+    = render "devise/shared/links"

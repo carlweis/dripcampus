@@ -1,0 +1,35 @@
+// Styles for devise generated views
+.account-container {
+  @include outer-container;
+  padding: 3em 0;
+  h2 {
+    text-align: center;
+
+  }
+  p {
+    text-align: center;
+  }
+  .account-form {
+    @include shift(4);
+    @include span-columns(4);
+  }
+  .account-links {
+    padding: 3em 0;
+    @include shift(4);
+    @include span-columns(4);
+  }
+}
+
+#error_explanation {
+  padding-bottom: 2em;
+  h2 {
+    // error headings
+    font-size: 0.775em;
+    color: $primary-color;
+  }
+  ul {
+    li {
+      color: $secondary-color;
+    }
+  }
+}

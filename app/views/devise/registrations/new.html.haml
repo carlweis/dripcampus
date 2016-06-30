@@ -1,0 +1,23 @@
+%section{:class => "account-container"}
+  %h2 Create Your Account
+  %p Create your account and start dripping information to your prospective users.
+  %div{:class => "account-form"}
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .field
+        = f.label :email
+        = f.email_field :email, autofocus: true
+      .field
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "off"
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: "off"
+      .actions
+        = f.submit "Create Account", :class => "button primary block"
+  %div{:class => "account-links"}
+    = render "devise/shared/links"

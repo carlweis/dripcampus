@@ -3,7 +3,14 @@
   margin: 0.5em auto;
   padding: 1em 2em;
   transition: all 200ms ease-in;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 0.875em;
 
+  &.block {
+    width: 100%;
+    display: block;
+  }
   &.primary {
     background: #f57638;
     color: #fff;
