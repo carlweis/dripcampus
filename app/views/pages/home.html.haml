@@ -5,7 +5,10 @@
     %p Easily setup new email campaigns, and trigger them from your webiste or mobile app.
     %div{:class =>"fb-like", 'data-share'=>"true", 'data-width'=>"450", 'data-show-faces'=>"true"}
     %br
-    = render "shared/signup_links"
+    - unless user_signed_in?
+      = render "shared/signup_links"
+    - else
+      = link_to 'Go to your Dashboard', account_dashboard_path, :class => 'button primary'
 
 %section{:class => "overview"}
   %article
