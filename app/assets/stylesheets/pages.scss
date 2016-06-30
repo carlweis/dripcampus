@@ -25,15 +25,18 @@
 
 .how-it-works {
    @include outer-container;
-
+   padding-bottom: 3em;
+   text-align: center;
+   h1 {
+     padding: 1em 0;
+   }
    article {
-     @include span-columns(3);
+     @include span-columns(4);
      @include omega(4n);
 
      img {
-       width: 80px;
-       height: 80px;
-      //  height: 120px;
+       width: 64px;
+
        margin: 0 auto;
        display: block;
        margin-bottom: 1.5em;
@@ -42,4 +45,9 @@
        color: #888;
      }
    }
+}
+
+.signup-callout {
+  text-align: center;
+  padding: 2em 0 3em 0;
 }

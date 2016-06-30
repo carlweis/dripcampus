@@ -6,32 +6,30 @@
     %p Easily setup new email campaigns, and trigger them from your webiste or mobile app.
     %div{:class =>"fb-like", 'data-share'=>"true", 'data-width'=>"450", 'data-show-faces'=>"true"}
     %br
-    =link_to "Create an Account", new_user_registration_path, :class => 'button primary'
-    %strong &nbsp;&nbsp;OR&nbsp;&nbsp;
-    = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'button facebook'
+    = render "shared/signup_links"
 
-%section(class="overview")
+%section{:class => "overview"}
   %article
-    -# =image_tag image_path("prospect.png")
+    = image_tag image_path "prospect.png"
     %h2 Prospective Students
     %p Engage with your prospective students, through a targeted campaign, which provides potential students with the information they need.
   %article
-    -# =image_tag image_path("onboarding.png")
+    = image_tag image_path "onboarding.png"
     %h2 Student On-Boarding
     %p Automatically send out your student on-boarding information packet, welcome videos and more, using a drip campaign.
   %article
-    -# =image_tag image_path("alumni.png")
+    = image_tag image_path "alumni.png"
     %h2 Almni and Donors
     %p Provide the information needed to donors an alumni, to drive more donations and provide up-to-date information to graduates.
   %article
-    -# =image_tag image_path("cursor.png")
+    = image_tag image_path "cursor.png"
     %h2 Events and Triggers
-    %p You can define custom events, that will trigger a drip campaign, such as student registration, starting an online application or anything else.
+    %p You can define custom events, that will trigger a drip campaign, such as student registration, starting an online application.
   %article
-    -# =image_tag image_path("content.png")
+    = image_tag image_path "content.png"
     %h2 Course Content
     %p Setup a drip campaign for your course, so all students start to get drips of information, lecture videos, and more. Right in their inbox.
   %article
-    -# =image_tag image_path("idea.png")
+    = image_tag image_path "idea.png"
     %h2 Endless Possabilities
-    %p Easy to integrate into your existing site or mobile application, and capture events/triggers to kick-off one or more campaigns.
+    %p Easy to integrate into your existing site or mobile application, and capture events/triggers to add subscribers to one or more campaigns.

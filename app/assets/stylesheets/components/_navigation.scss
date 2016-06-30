@@ -1,5 +1,5 @@
 .centered-navigation {
-  border-top: solid 3px #f27537;
+  border-top: solid 3px $primary-color;
   $base-border-radius: 3px !default;
   $dark-gray: #333 !default;
   $large-screen: 53.75em !default;
@@ -115,7 +115,7 @@
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 1.2px;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.875em;
 
       &.active {

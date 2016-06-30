@@ -5,8 +5,10 @@
     %title DripCampus | Email marketing just for Schools
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %link{:href => '//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic', :rel=>'stylesheet', :type=>'text/css'}
+    %link{:href=>'//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600italic,600,700,700italic,900,300italic,300,200italic,200', :rel=>'stylesheet', :type=>'text/css'}
     = csrf_meta_tags
-  %body
+  %body(class="type-system-sans")
     -if notice
       %p(class="notice")= notice
     -if alert
