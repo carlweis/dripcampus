@@ -1,0 +1,14 @@
+.button {
+  border-radius: 3px;
+  margin: 0.5em auto;
+  padding: 1em 2em;
+
+  &.primary {
+    background: #f57638;
+    color: #fff;
+    transition: all 500ms ease-in;
+    &:hover, &:active, &:focus {
+      background: darken(#f57638, 10%);
+    }
+  }
+}

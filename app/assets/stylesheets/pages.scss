@@ -1,3 +1,23 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// These are the base styles for the static pages of the site.
+
+.how-it-works {
+   @include outer-container;   
+   padding: 4em 0;
+   article {
+     @include span-columns(4);
+     @include omega(3n);
+     text-align: center;
+     padding: 1em 2em;
+     img {
+       width: 80px;
+       height: 80px;
+      //  height: 120px;
+       margin: 0 auto;
+       display: block;
+       margin-bottom: 1.5em;
+     }
+     p {
+       color: #888;
+     }
+   }
+}

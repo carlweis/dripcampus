@@ -1,4 +1,12 @@
 @import "vendor/vendor";
 @import "components/components";
+@import "pages";
 
-html, body { margin: 0; }
+html, body {
+  margin: 0;
+  background-image: -webkit-linear-gradient(#fff, #e8f4f5);
+  background-image: -moz-linear-gradient(#fff, #e8f4f5);
+  background-image: -o-linear-gradient(#fff, #e8f4f5);
+  background-image: linear-gradient(#ffffff,#e8f4f5);
+  background-color: whitesmoke;
+}
