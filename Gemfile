@@ -14,6 +14,7 @@ gem 'kaminari'
 gem 'nokogiri'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'figaro'
 
 # frontend gems
 gem 'bourbon'

@@ -6,16 +6,16 @@
     %nav{:role => "navigation"}
       %ul#js-centered-navigation-menu.centered-navigation-menu.show
         %li.nav-link
-          %a{:href => "javascript:void(0)"} How it Works
+          =link_to "How it Works", tour_path
         %li.nav-link
           %a{:href => "javascript:void(0)"} Campaigns
 
         %li.nav-link.logo
           %a.logo{:href => "javascript:void(0)"}
-            =image_tag image_path("dripcampus.png")
+          =link_to(image_tag(image_path("dripcampus.png")), root_path)
         %li.nav-link
           %a{:href => "javascript:void(0)"} Help
         %li.nav-link
-          %a{:href => "javascript:void(0)"} Login
+          =link_to "Login", new_user_session_path
         %li.nav-link
-          %a{:href => "javascript:void(0)"} Sign up
+          =link_to "Sign up", new_user_registration_path

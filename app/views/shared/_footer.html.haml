@@ -1,12 +1,12 @@
 %footer.footer{:role => "contentinfo"}
   .footer-logo
-    =image_tag image_path("dripcampus_light.png")
+    =link_to(image_tag(image_path("dripcampus_light.png")), root_path)
   .footer-links
     %ul
       %li
         %h3 Content
       %li
-        %a{:href => "javascript:void(0)"} How it Works
+        =link_to "How it Works", tour_path
       %li
         %a{:href => "javascript:void(0)"} Campaigns
       %li
@@ -26,6 +26,6 @@
       %li
         %a{:href => "javascript:void(0)"} Terms and Conditions
       %li
-        %a{:href => "javascript:void(0)"} Privacy Policy  
+        %a{:href => "javascript:void(0)"} Privacy Policy
   %hr
     %p= "Copyright #{Time.now.year} Carl Weis. All Rights Reserved."

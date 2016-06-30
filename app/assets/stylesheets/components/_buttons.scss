@@ -2,13 +2,29 @@
   border-radius: 3px;
   margin: 0.5em auto;
   padding: 1em 2em;
+  transition: all 200ms ease-in;
 
   &.primary {
     background: #f57638;
     color: #fff;
-    transition: all 500ms ease-in;
+    border-color: darken(#f57638, 5%);
+    border-width: 1px;
+    border-style: solid;
     &:hover, &:active, &:focus {
       background: darken(#f57638, 10%);
+      border-color: darken(#f57638, 15%);
+    }
+  }
+
+  &.facebook {
+    background: #2198a1;
+    color: #fff;
+    border-color: darken(#2198a1, 5%);
+    border-width: 1px;
+    border-style: solid;
+    &:hover, &:active, &:focus {
+      background: darken(#2198a1, 10%);
+      border-color: darken(#2198a1, 15%);
     }
   }
 }
