@@ -12,14 +12,14 @@
         %li.nav-link.logo
           %a.logo{:href => "javascript:void(0)"}
           = active_link_to(image_tag(image_path("dripcampus.png")), root_path)
-        %li.nav-link
-          %a{:href => "javascript:void(0)"} Help
         - if user_signed_in?
           %li.nav-link
             = active_link_to "Dashboard", account_dashboard_path
           %li.nav-link
             = active_link_to "Sign out", destroy_user_session_path, method: :delete
         -else
+          %li.nav-link
+            %a{:href => "javascript:void(0)"} Help
           %li.nav-link
             = active_link_to "Login", new_user_session_path
           %li.nav-link

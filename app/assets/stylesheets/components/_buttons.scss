@@ -20,6 +20,7 @@
     &:hover, &:active, &:focus {
       background: darken(#f57638, 10%);
       border-color: darken(#f57638, 15%);
+      color: #ffffff;
     }
   }
 
@@ -32,6 +33,7 @@
     &:hover, &:active, &:focus {
       background: darken(#2198a1, 10%);
       border-color: darken(#2198a1, 15%);
+      color: #ffffff;
     }
   }
 }
