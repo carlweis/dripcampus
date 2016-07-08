@@ -1,0 +1,10 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "angular": "~> 1.5",
+    "angular-mocks": "latest",
+    "angular-route": "latest",
+    "angular-resource": "latest",
+    "angular-messages": "latest"
+  }
+}

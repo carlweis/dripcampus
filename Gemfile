@@ -22,6 +22,7 @@ gem 'neat'
 gem 'bitters'
 gem 'haml'
 gem 'haml-rails'
+gem 'bower-rails'
 
 group :test do
   gem 'capybara'
@@ -32,8 +33,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'fuubar'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'poltergeist'
+  gem 'teaspoon-jasmine'
 end
 
 group :development do
