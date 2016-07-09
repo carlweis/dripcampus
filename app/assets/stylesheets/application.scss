@@ -4,6 +4,7 @@
 @import "devise";
 @import "pages";
 @import "account/dashboard";
+@import "account/prospects";
 
 // font-setup
 .type-system-sans {
@@ -49,7 +50,7 @@
   }
 
   a {
-    color: $base-font-color;
+    // color: $base-font-color;
     text-decoration: none;
     &:hover, &:focus, &:active {
       color: $primary-color;
@@ -186,4 +187,24 @@ p {
 // helpers
 .text-center {
   text-align: center;
+}
+
+
+// table styles
+tr:nth-child(even) {background: #F8F8F8}
+tr:nth-child(odd) {background: transparent}
+
+
+// score colors
+.score-low {
+  color: red;
+  font-weight: bold;
+}
+.score-medium {
+  color: #f27537;
+  font-weight: bold;
+}
+.score-high {
+  color: #2198a1;
+  font-weight: bold;
 }

@@ -1,0 +1,20 @@
+%section{:class => "account-prospects"}
+  .container
+    %h2{:class => 'text-center'} Prospects
+
+    %table
+      %tbody
+        %tr
+          %th Name
+          %th Email
+          %th{style: 'text-align: center;'} Score
+          %th{style: 'text-align: center;'} Grade
+          %th Assigned to
+      - @prospects.each do |prospect|
+        %tr
+          %td= "#{prospect.first_name} #{prospect.last_name}"
+          %td= mail_to prospect.email
+
+          %td{style: 'width: 50px; text-align: center;', class: score_color(prospect.score)}= prospect.score
+          %td{style: 'width: 50px; text-align: center;'}= prospect.grade
+          %td= prospect.assigned_to

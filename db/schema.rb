@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709051915) do
+ActiveRecord::Schema.define(version: 20160709061343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20160709051915) do
     t.integer  "user_id"
     t.string   "name"
     t.text     "tags"
-    t.boolean  "active",     default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "active",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "email_count"
   end
 
   add_index "campaigns", ["name"], name: "index_campaigns_on_name", unique: true, using: :btree

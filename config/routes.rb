@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # User account routes
   namespace :account do
     get 'dashboard' => 'dashboard#index', as: 'dashboard'
+    get 'prospects' => 'prospects#index', as: 'prospects'
   end
 
 end
