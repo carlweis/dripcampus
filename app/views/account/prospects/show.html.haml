@@ -1,0 +1,29 @@
+%section{:class => "account-prospects"}
+  .container
+    = link_to 'Back to Prospects', account_prospects_path
+    %h5{:class => 'text-center'} Prospect Details
+    %h1{:class => 'text-center'}= "#{@prospect.first_name} #{@prospect.last_name}"
+    %br
+    %table
+      %tbody
+        %tr
+          %th Email
+          %td= mail_to @prospect.email
+        %tr
+          %th Comapny
+          %td= @prospect.company
+        %tr
+          %th Phone
+          %td= @prospect.phone
+        %tr
+          %th Score
+          %td= @prospect.score
+        %tr
+          %th Grade
+          %td= @prospect.grade
+        %tr
+          %th Assigned To
+          %td= @prospect.assigned_to
+        %tr
+          %th Notes
+          %td= @prospect.notes

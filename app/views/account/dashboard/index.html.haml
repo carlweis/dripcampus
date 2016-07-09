@@ -1,5 +1,6 @@
-%section{:class => "account-dashboard"}
+%section{class: "account-dashboard"}
   .container
-    %h2{:class => 'text-center'}= current_user.email
+    %h5{class: 'text-center'} Welcome
+    %h2{class: 'text-center'}= current_user.email
 
     = render 'grid'

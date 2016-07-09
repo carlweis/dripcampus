@@ -191,13 +191,23 @@ p {
 
 
 // table styles
+// tr:first-child > th {background: #FFFFFF;}
 tr:nth-child(even) {background: #F8F8F8}
 tr:nth-child(odd) {background: transparent}
 
+// default page styles
+section {
+  height: 100%;
+  padding: 3em 0;
+  background: #ffffff;
+
+  .container {
+    @include outer-container;
+  }
+}
 
 // score colors
 .score-low {
-  color: red;
   font-weight: bold;
 }
 .score-medium {
