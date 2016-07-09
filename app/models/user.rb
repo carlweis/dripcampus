@@ -3,4 +3,14 @@ class User < ActiveRecord::Base
          :timeoutable, :recoverable, :rememberable, :trackable,
          :validatable, :lockable
   devise :omniauthable, :omniauth_providers => [:facebook]
+
+  before_create :set_account_id
+
+  has_many :prospects
+  has_many :mailing_lists
+
+  private
+  	def set_account_id
+  		self.account_id = SecureRandom.uuid
+  	end
 end

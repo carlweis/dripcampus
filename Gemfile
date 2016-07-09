@@ -32,7 +32,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'ffaker'
+  gem 'faker'
   gem 'fuubar'
   gem 'guard'
   gem 'guard-rspec'

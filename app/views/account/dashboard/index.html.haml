@@ -1,3 +1,5 @@
 %section{:class => "user-dashboard"}
   .container
-    %h2 My Dashboard
+    %h2{:class => 'text-center'}= current_user.email
+
+    = render 'grid'
