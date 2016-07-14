@@ -1,7 +1,7 @@
 // alignment
-.pull-right { float: right; }
-.pull-left { float: left; }
-.block { width: 100%; }
-.text-center {text-align: center;}
-.text-left {text-align: left;}
-.text-right {text-align: right;}
+.pull-right { float: right !important; }
+.pull-left { float: left !important; }
+.block { width: 100% !important; }
+.text-center {text-align: center !important;}
+.text-left {text-align: left !important;}
+.text-right {text-align: right !important;}

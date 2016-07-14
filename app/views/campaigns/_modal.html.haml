@@ -3,7 +3,7 @@
   .modal-fade-screen
     .modal-inner
       .modal-close{:for => "modal-1"}
-      %h1
+      %h1.text-center
         Are you ABSOLUTLY sure?
       %h4
         Delete Campaign:
@@ -19,4 +19,4 @@
           = button_to 'I understand the consequences, delete this campaign', campaign_path(@campaign), class: 'button danger', method: :delete
         %hr
         %p.text-center
-          = link_to 'Cancel Delete', campaign_path(@campaign), class: 'button secondary'
+          = link_to 'NO, Do not delete campaign', campaign_path(@campaign), class: 'button secondary'
