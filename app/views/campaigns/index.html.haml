@@ -5,15 +5,16 @@
   %h4.text-center Search / Filter
   = render 'search'
 
-%h5.text-center
-  - if @campaigns.offset_value > 0
-    =@campaigns.offset_value
-    of
-  =@campaigns.total_count
-  Campaigns
+%p
+  %strong
+    - if @campaigns.offset_value > 0
+      =@campaigns.offset_value
+      of
+    =@campaigns.total_count
+    Campaigns
+  %span.pull-right
+    =link_to 'New Campaign', new_campaign_path, class: 'button primary'
 
-%p.text-right
-  =link_to 'New Campaign', new_campaign_path, class: 'button primary'
 %table.tables
   %thead
     %tr
