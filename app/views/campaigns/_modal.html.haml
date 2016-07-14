@@ -17,3 +17,6 @@
       %p.modal-content.text-center
         .text-center
           = button_to 'I understand the consequences, delete this campaign', campaign_path(@campaign), class: 'button danger', method: :delete
+        %hr
+        %p.text-center
+          = link_to 'Cancel Delete', campaign_path(@campaign), class: 'button secondary'
