@@ -15,7 +15,6 @@ gem 'nokogiri'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
-gem 'kaminari'
 
 # frontend gems
 gem 'bourbon'
@@ -33,6 +32,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
   gem 'faker'
   gem 'fuubar'
   gem 'guard'

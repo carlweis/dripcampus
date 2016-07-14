@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :campaign do
-    user nil
-    name "MyString"
-    tags "MyText"
-    active false
+    user create(:user)
+    name "New User Signup Campaign"
+    tags "signup, new_user"
+    active true
   end
 end
