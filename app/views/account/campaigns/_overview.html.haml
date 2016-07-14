@@ -1,0 +1,19 @@
+%h6 Campaign Dashboard
+%h1= @campaign.name
+- if !@campaign.description.empty?
+  %p
+    %strong Description
+    %br
+    =@campaign.description
+- else
+  %p No description provided
+- if !@campaign.tags.empty?
+  %label Tags
+  %ul.tags
+    - @campaign.tags.split(',').each do |tag|
+      %li= tag
+- else
+  %p No tags provided
+%hr
+%p
+  =link_to 'Edit Campaign', edit_account_campaign_path(@campaign), class: 'button primary'
