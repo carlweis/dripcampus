@@ -16,6 +16,10 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
 
+# normally only under dev/test group
+# used to seed sample data to production
+gem 'ffaker'
+
 # frontend gems
 gem 'bourbon'
 gem 'neat'
@@ -33,7 +37,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  gem 'ffaker'
   gem 'fuubar'
   gem 'guard'
   gem 'guard-rspec'
