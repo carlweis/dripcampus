@@ -1,4 +1,4 @@
-class Account::CampaignsController < ApplicationController
+class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,7 +19,7 @@ class Account::CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
     respond_to do |format|
       if @campaign.save
-        format.html { redirect_to [:account, @campaign], notice: "Drip Campaign #{@campaign.name} successfully created."}
+        format.html { redirect_to @campaign, notice: "Drip Campaign #{@campaign.name} successfully created."}
         format.json { render :show, status: :created, location: @campaign }
       else
         format.html { render :new }
@@ -31,7 +31,7 @@ class Account::CampaignsController < ApplicationController
   def update
     respond_to do |format|
       if @campaign.update(campaign_params)
-        format.html { redirect_to [:account, @campaign], notice: "Drip Campagin #{@campaign.name} has been updated."}
+        format.html { redirect_to @campaign, notice: "Drip Campagin #{@campaign.name} has been updated."}
         format.json { render :show, status: :ok, location: @campaign }
       else
         format.html { render :edit }
@@ -43,7 +43,7 @@ class Account::CampaignsController < ApplicationController
   def destroy
     @campaign.destroy
     respond_to do |format|
-      format.html { redirect_to account_campaign_index_path, notice: 'Campaign was successfully deleted.'}
+      format.html { redirect_to campaigns_url, notice: 'Campaign was successfully deleted.'}
       format.json { head :no_content }
     end
   end

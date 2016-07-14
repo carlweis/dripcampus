@@ -2,7 +2,7 @@
 %h2= @campaign.name
 
 %fieldset
-  = form_for([@campaign], url: account_campaign_path(@campaign), method: :patch) do |f|
+  = form_for(@campaign, method: :patch) do |f|
     - if @campaign.errors.any?
       #errors
         %h2

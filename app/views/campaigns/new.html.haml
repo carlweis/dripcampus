@@ -1,6 +1,6 @@
 %h1 New Drip Campaign
 %fieldset
-  = form_for([@campaign], url: account_campaign_index_path, method: :post) do |f|
+  = form_for(@campaign, method: :post) do |f|
     - if @campaign.errors.any?
       #errors
         %h2

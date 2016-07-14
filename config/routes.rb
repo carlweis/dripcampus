@@ -16,12 +16,8 @@ Rails.application.routes.draw do
   # static page routes
   get 'tour' => 'pages#tour'
 
-  # User account routes
-  namespace :account do
-    get 'dashboard' => 'dashboard#index', as: 'dashboard'
-
-    resources :campaigns, as: 'campaign'
-
-  end
+  # Campaign routes
+  get 'dashboard' => 'campaigns#index', as: 'dashboard'
+  resources :campaigns
 
 end

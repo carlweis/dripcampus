@@ -5,19 +5,22 @@
     %a#js-centered-navigation-mobile-menu.centered-navigation-mobile-menu{:href => "javascript:void(0)"} MENU
     %nav{:role => "navigation"}
       %ul#js-centered-navigation-menu.centered-navigation-menu.show
-        %li.nav-link
-          = active_link_to "How it Works", tour_path
-        %li.nav-link
-          %a{:href => "javascript:void(0)"} Campaigns
-        %li.nav-link.logo
-          %a.logo{:href => "javascript:void(0)"}
-          = active_link_to(image_tag(image_path("dripcampus.png")), root_path)
         - if user_signed_in?
+          %li.nav-link.logo
+            %a.logo{:href => "javascript:void(0)"}
+            = active_link_to(image_tag(image_path("dripcampus.png")), root_path)
           %li.nav-link
-            = active_link_to "Dashboard", account_dashboard_path
+            = active_link_to "Dashboard", dashboard_path
           %li.nav-link
-            = active_link_to "Sign out", destroy_user_session_path, method: :delete
+            = active_link_to "Sign out", destroy_user_session_path, method: :delete                 
         -else
+          %li.nav-link
+            = active_link_to "How it Works", tour_path
+          %li.nav-link
+            %a{:href => "javascript:void(0)"} Campaigns
+          %li.nav-link.logo
+            %a.logo{:href => "javascript:void(0)"}
+            = active_link_to(image_tag(image_path("dripcampus.png")), root_path)
           %li.nav-link
             %a{:href => "javascript:void(0)"} Help
           %li.nav-link
