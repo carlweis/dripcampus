@@ -18,6 +18,17 @@
     border-radius: 3px;
     padding: 0.15em 0.25em;
     margin-right: 0.25em;
+    margin-bottom: 0.25em;
     color: #2198a1;
   }
+}
+
+.campaign-active {
+  color: #21a183;
+  background-color: rgba(33, 161, 131, 0.15);
+}
+
+.campaign-inactive {
+  color: #f53938;
+  background-color: rgba(245, 57, 56, 0.15);
 }

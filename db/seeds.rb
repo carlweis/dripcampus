@@ -14,12 +14,12 @@ user = User.create!(
 )
 
 ## Seed campaigns
-25.times do |i|
+50.times do |i|
 	Campaign.create!(
 		user: user,
 		name: "#{FFaker::Job.title}-#{i}",
 		description: FFaker::HipsterIpsum.paragraph,
 		tags: FFaker::HipsterIpsum.words(5).join(', '),
-		active: true
+		active: FFaker::Boolean.random
 	)
 end

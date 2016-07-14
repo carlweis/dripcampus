@@ -3,6 +3,9 @@ class CampaignsController < ApplicationController
 
   def index
     @campaigns = Campaign.order(:name).page params[:page]
+    if params[:search]
+      @campaigns = Campaign.search(params[:search]).order(:name).page params[:page]
+    end
   end
 
   def show

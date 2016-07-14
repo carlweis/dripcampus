@@ -1,2 +1,35 @@
-%h1 Account::Campaigns#index
-%p Find me in app/views/account/campaigns/index.html.haml
+%h6 Dashboard
+%h1 Campaigns
+
+%section
+  %h4.text-center Search / Filter
+  = render 'search'
+
+%h5.text-center
+  =@campaigns.offset_value
+  of
+  =@campaigns.total_count
+  Campaigns
+%table.tables
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Tags
+      %th{style: 'width:10%; text-align:center;'} Status
+      %th{style: 'width:10%; text-align:center;'} Subscribers
+      %th{style: 'width:10%; text-align:center;'} Messages
+  %tbody
+  - @campaigns.each do |campaign|
+    %tr
+      %td
+        %strong=link_to campaign.name, campaign_path(campaign)
+      %td= truncate(campaign.description, length: 60)
+      %td
+        %ul.tags
+          - campaign.tags.split(',').each do |tag|
+            %li= tag
+      %td{style: 'text-align:center;', class: campaign_status_class(campaign)}= campaign.active ? 'Active' : 'Inactive'
+      %td{style: 'text-align:center;'} 0
+      %td{style: 'text-align:center;'} 0
+= paginate @campaigns

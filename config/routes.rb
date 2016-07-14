@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   # Campaign routes
   get 'dashboard' => 'campaigns#index', as: 'dashboard'
   resources :campaigns
-
+  
 end
