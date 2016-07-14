@@ -1,0 +1,36 @@
+%h1 Edit Drip Campaign
+%h2= @campaign.name
+
+%fieldset
+  = form_for([@campaign], url: account_campaign_path(@campaign), method: :patch) do |f|
+    - if @campaign.errors.any?
+      #errors
+        %h2
+          = pluralize(@campaign.errors.count, "error")
+          prohibited this campaign from being created:
+        %ul
+          - @campaign.errors.full_messages.each do |message|
+            %li= message
+    %p
+      = f.label :name
+      = f.text_field :name
+    %p
+      = f.label :description
+      = f.text_area :description, rows: 3, cols: 30
+    %p
+      = f.label :tags
+      = f.text_field :tags
+    %p
+      = f.submit 'Update Campaign'
+%hr
+.danger-zone
+  %h4 Danger Zone
+  %p You can delete the campaign, which will remove all subscribers and messages assosicated with this campaign.
+  %strong NOTE
+  This is ireversable.
+  %hr
+  %label{:for => "modal-1"}
+    %a.modal-trigger.button.danger Delete Campaign
+
+
+= render 'modal'

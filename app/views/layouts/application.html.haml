@@ -15,7 +15,7 @@
       %p(class="alert")= alert
 
     = render 'shared/navigation'
-
-    = yield
+    %section#main
+      = yield
 
     = render 'shared/footer'

@@ -1,10 +1,11 @@
 @import "vendor/vendor";
 @import "theme/theme";
 @import "components/components";
+@import "helpers";
 @import "devise";
 @import "pages";
 @import "account/dashboard";
-@import "account/prospects";
+@import "account/campaigns";
 
 // font-setup
 .type-system-sans {
@@ -189,6 +190,13 @@ p {
   text-align: center;
 }
 
+// forms
+fieldset {
+  background: #f7f7f7;
+  border: 1px solid #DDD;
+  margin: 0 0 .75em;
+  padding: 1.5em;
+}
 
 // table styles
 // tr:first-child > th {background: #FFFFFF;}
@@ -199,22 +207,17 @@ tr:nth-child(odd) {background: transparent}
 section {
   height: 100%;
   padding: 3em 0;
-  background: #ffffff;
+  // background: #ffffff;
 
   .container {
     @include outer-container;
   }
 }
 
-// score colors
-.score-low {
-  font-weight: bold;
+section#main {
+  @include outer-container;
 }
-.score-medium {
-  color: #f27537;
-  font-weight: bold;
-}
-.score-high {
-  color: #2198a1;
-  font-weight: bold;
+
+.danger-zone {
+  text-align: center;
 }

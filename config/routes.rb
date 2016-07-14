@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # devise routes
   devise_for :users, path: 'account', path_names: {
     sign_in:      'login',
@@ -19,14 +20,8 @@ Rails.application.routes.draw do
   namespace :account do
     get 'dashboard' => 'dashboard#index', as: 'dashboard'
 
-    # prospect routes
-    get 'prospects' => 'prospects#index', as: 'prospects'
-    get 'prospects/:id' => 'prospects#show', as: 'prospect'
+    resources :campaigns, as: 'campaign'
 
-    # mailing list routes
-    # get 'lists' => 'mailing_lists#index', as: 'mailing_lists'
-    # get 'lists/new' => 'mailing_lists#new', as: 'new_mailing_list'
-    resources :mailing_lists
   end
 
 end

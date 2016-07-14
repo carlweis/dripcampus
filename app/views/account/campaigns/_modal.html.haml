@@ -1,0 +1,19 @@
+.modal
+  %input#modal-1.modal-state{:type => "checkbox"}/
+  .modal-fade-screen
+    .modal-inner
+      .modal-close{:for => "modal-1"}
+      %h1
+        Are you ABSOLUTLY sure?
+      %h4
+        Delete Campaign:
+        =@campaign.name
+      %p.modal-intro
+        This action
+        %strong CANNOT
+        be undone. This will permanetly delete the
+        %strong= @campaign.name
+        campaign, messages, and subscribers.
+      %p.modal-content.text-center
+        .text-center
+          = button_to 'I understand the consequences, delete this campaign', account_campaign_path(@campaign), class: 'button danger', method: :delete

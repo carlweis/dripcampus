@@ -1,4 +1,4 @@
-.button {
+.button, button, [type='button'], [type='reset'], [type='submit'] {
   border-radius: 3px;
   margin: 0.5em auto;
   padding: 1em 2em;
@@ -20,6 +20,19 @@
     &:hover, &:active, &:focus {
       background: darken(#f57638, 10%);
       border-color: darken(#f57638, 15%);
+      color: #ffffff;
+    }
+  }
+
+  &.danger {
+    background: #f53938;
+    color: #fff;
+    border-color: darken(#f53938, 5%);
+    border-width: 1px;
+    border-style: solid;
+    &:hover, &:active, &:focus {
+      background: darken(#f53938, 10%);
+      border-color: darken(#f53938, 15%);
       color: #ffffff;
     }
   }

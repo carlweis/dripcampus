@@ -1,0 +1,22 @@
+%h1 New Drip Campaign
+%fieldset
+  = form_for([@campaign], url: account_campaign_index_path, method: :post) do |f|
+    - if @campaign.errors.any?
+      #errors
+        %h2
+          = pluralize(@campaign.errors.count, "error")
+          prohibited this campaign from being created:
+        %ul
+          - @campaign.errors.full_messages.each do |message|
+            %li= message
+    %p
+      = f.label :name
+      = f.text_field :name
+    %p
+      = f.label :description
+      = f.text_area :description, rows: 3, cols: 30
+    %p
+      = f.label :tags
+      = f.text_field :tags
+    %p
+      = f.submit 'Create Campaign'
