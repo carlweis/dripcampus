@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :campaign do
     user
-    name "New User Signup Campaign"
+    sequence(:name) {|n| "Campaign #{n}" }
     tags "signup, new_user"
     description "Signup campaign"
     active true

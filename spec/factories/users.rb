@@ -2,7 +2,7 @@ require 'ffaker'
 
 FactoryGirl.define do
   factory :user do
-    email FFaker::Internet.email
+    sequence(:email) {|n| "person#{n}@example.com" }
     password "password"
     password_confirmation "password"
   end
