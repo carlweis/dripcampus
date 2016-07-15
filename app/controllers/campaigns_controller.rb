@@ -4,7 +4,8 @@ class CampaignsController < ApplicationController
   def index
     @campaigns = Campaign.order(:name).page params[:page]
     if params[:search]
-      @campaigns = Campaign.search(params[:search]).order(:name).page params[:page]
+      @campaigns = Campaign.search(params[:search]).
+        order(:name).page params[:page]
     end
   end
 
@@ -19,36 +20,27 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.new(campaign_params)
-    respond_to do |format|
-      if @campaign.save
-        format.html { redirect_to @campaign, notice: "Drip Campaign #{@campaign.name} successfully created."}
-        format.json { render :show, status: :created, location: @campaign }
-      else
-        format.html { render :new }
-        format.json { render json: @campaign.errors, status: :unprocessable_entity}
-      end
+    @campaign = Campaign.new(campaign_attributes)
+    if @campaign.save
+      redirect_to @campaign,
+      notice: "Drip Campaign #{@campaign.name} successfully created."
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @campaign.update(campaign_params)
-        format.html { redirect_to @campaign, notice: "Drip Campagin #{@campaign.name} has been updated."}
-        format.json { render :show, status: :ok, location: @campaign }
-      else
-        format.html { render :edit }
-        format.json { render json: @campaign.errors, status: :unprocessable_entity }
-      end
+    if @campaign.update(campaign_attributes)
+      redirect_to @campaign, 
+        notice: "Drip Campagin #{@campaign.name} has been updated."
+    else
+      render :edit
     end
   end
 
   def destroy
     @campaign.destroy
-    respond_to do |format|
-      format.html { redirect_to campaigns_url, notice: 'Campaign was successfully deleted.'}
-      format.json { head :no_content }
-    end
+    redirect_to campaigns_url, notice: 'Campaign was successfully deleted.'
   end
 
 
@@ -57,7 +49,7 @@ class CampaignsController < ApplicationController
       @campaign = Campaign.find(params[:id])
     end
 
-    def campaign_params
+    def campaign_attributes
       params.require(:campaign).permit(:name, :description, :tags)
     end
 end

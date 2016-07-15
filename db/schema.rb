@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709051915) do
+ActiveRecord::Schema.define(version: 20160715180134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,27 @@ ActiveRecord::Schema.define(version: 20160709051915) do
 
   add_index "campaigns", ["name"], name: "index_campaigns_on_name", unique: true, using: :btree
   add_index "campaigns", ["user_id"], name: "index_campaigns_on_user_id", using: :btree
+
+  create_table "subscribers", force: :cascade do |t|
+    t.integer  "campaign_id"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "source",      default: "website"
+    t.integer  "sends",       default: 0
+    t.integer  "opens",       default: 0
+    t.integer  "replies",     default: 0
+    t.integer  "clicks",      default: 0
+    t.boolean  "opt_out",     default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "subscribers", ["campaign_id"], name: "index_subscribers_on_campaign_id", using: :btree
+  add_index "subscribers", ["email"], name: "index_subscribers_on_email", unique: true, using: :btree
+  add_index "subscribers", ["first_name"], name: "index_subscribers_on_first_name", using: :btree
+  add_index "subscribers", ["last_name"], name: "index_subscribers_on_last_name", using: :btree
+  add_index "subscribers", ["source"], name: "index_subscribers_on_source", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "account_id",                          null: false
@@ -60,4 +81,5 @@ ActiveRecord::Schema.define(version: 20160709051915) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "campaigns", "users"
+  add_foreign_key "subscribers", "campaigns"
 end
