@@ -1,0 +1,42 @@
+%h1
+  Subscribers
+  %small.pull-right
+    =link_to 'New Subscriber', new_subscriber_path, class: 'button primary'
+
+%section
+  %h4.text-center Search / Filter
+  =render 'search'
+
+%p.text-center
+  %strong
+    - if @subscribers.offset_value > 0
+      =@subscribers.offset_value
+      of
+    =@subscribers.total_count
+    Subscribers
+
+%table.tables
+  %thead
+    %tr
+      %th Email
+      %th First Name
+      %th Last Name
+      %th Source
+      %th{style: 'width:10%; text-align:center;'} Sends
+      %th{style: 'width:10%; text-align:center;'} Opens
+      %th{style: 'width:10%; text-align:center;'} Replies
+      %th{style: 'width:10%; text-align:center;'} Clicks
+      %th{style: 'width:10%; text-align:center;'} Opt Out
+  %tbody
+  - @subscribers.each do |subscriber|
+    %tr
+      %td
+        %strong=link_to subscriber.email, subscriber_path(subscriber)
+      %td=subscriber.first_name
+      %td=subscriber.last_name
+      %td=subscriber.source
+      %td{style: 'text-align: center;'}=subscriber.sends
+      %td{style: 'text-align: center;'}=subscriber.opens
+      %td{style: 'text-align: center;'}=subscriber.replies
+      %td{style: 'text-align: center;'}=subscriber.clicks
+      %td{style: 'text-align: center;'}=subscriber.opt_out ? 'YES' : 'NO'
