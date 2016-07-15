@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe SubscribersController, type: :controller do
   login_user
-  
+
   before(:each) do
     @campaign = FactoryGirl.create(:campaign)
   end
@@ -30,7 +30,7 @@ RSpec.describe SubscribersController, type: :controller do
         allow(Subscriber).to receive(:new).
           with(email: "test@example.com").
           and_return(subscriber)
-        
+
         post :create, {campaign_id: @campaign.id, 
           subscriber: { email: "test@example.com" } }
 
