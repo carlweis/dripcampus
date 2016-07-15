@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
+  before_action :set_subscribers, only: [:show]
 
   def index
     @campaigns = Campaign.order(:name).page params[:page]
@@ -31,7 +32,7 @@ class CampaignsController < ApplicationController
 
   def update
     if @campaign.update(campaign_attributes)
-      redirect_to @campaign, 
+      redirect_to @campaign,
         notice: "Drip Campagin #{@campaign.name} has been updated."
     else
       render :edit
@@ -47,6 +48,11 @@ class CampaignsController < ApplicationController
   private
     def set_campaign
       @campaign = Campaign.find(params[:id])
+    end
+
+    def set_subscribers
+      @subscribers = Subscriber.where(campaign_id: params[:id]).
+        order(:email).page params[:page]
     end
 
     def campaign_attributes

@@ -1,0 +1,19 @@
+%table.tables
+  %thead
+    %tr
+      %th{style: 'width:25%;'} Email
+      %th{style: 'width:8%; text-align:center;'} Sends
+      %th{style: 'width:8%; text-align:center;'} Opens
+      %th{style: 'width:8%; text-align:center;'} Replies
+      %th{style: 'width:8%; text-align:center;'} Clicks
+  %tbody
+  - @subscribers.each do |subscriber|
+    %tr
+      %td
+        %strong=link_to subscriber.email, campaign_subscriber_path(params[:id], subscriber)      
+      %td{style: 'text-align: center;'}=subscriber.sends
+      %td{style: 'text-align: center;'}=subscriber.opens
+      %td{style: 'text-align: center;'}=subscriber.replies
+      %td{style: 'text-align: center;'}=subscriber.clicks
+
+=paginate @subscribers

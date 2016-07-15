@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :messages
 
     # campaign subscriber routes
-    resources :subscribers
+    resources :subscribers, only:[:index, :show, :new, :create]
   end
 
 end

@@ -1,0 +1,32 @@
+%h6
+  Campaign:
+  =@campaign.name
+%h1 New Subscriber
+
+%fieldset
+  =form_for([:campaign, @subscriber], method: :post) do |f|
+    - if @subscriber.errors.any?
+      #errors
+        %h2
+          =pluralize(@subscriber.errors.count, "error")
+          prohibited this subscriber from being created:
+        %ul
+          - @subscriber.errors.full_messages.each do |message|
+            %li=message
+
+    %p
+      =f.label :email
+      =f.email_field :email
+    %p
+      =f.label :first_name
+      =f.text_field :first_name
+    %p
+      =f.label :last_name
+      =f.text_field :last_name
+    %p
+      =f.label :source
+      =f.text_field :source
+    %p
+      =f.submit 'Create Subscriber', class: 'button primary'
+    %p.text-center
+      =link_to 'Back to Subscribers', campaign_subscribers_path(@campaign)

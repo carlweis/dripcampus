@@ -1,8 +1,11 @@
 .campaign-overview
-  = render 'overview'
+  =render 'overview'
 
 .campaign-subscribers
-  %h2 Subscribers
+  %h6
+    Subscribers
+    %small.pull-right=link_to 'All Subscribers', campaign_subscribers_path(@campaign)
+  =render 'subscribers'
 
 .campaign-messages
   %h2 Email Messages
