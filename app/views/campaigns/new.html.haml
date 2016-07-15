@@ -1,23 +1,24 @@
 %h1 New Drip Campaign
 %fieldset
-  = form_for(@campaign, method: :post) do |f|
+  =form_for(@campaign, method: :post) do |f|
     - if @campaign.errors.any?
       #errors
         %h2
-          = pluralize(@campaign.errors.count, "error")
+          =pluralize(@campaign.errors.count, "error")
           prohibited this campaign from being created:
         %ul
           - @campaign.errors.full_messages.each do |message|
-            %li= message
+            %li=message
     %p
-      = f.label :name
-      = f.text_field :name
+      =f.label :name
+      =f.text_field :name
     %p
-      = f.label :description
-      = f.text_area :description, rows: 3, cols: 30
+      =f.label :description
+      =f.text_area :description, rows: 3, cols: 30
     %p
-      = f.label :tags
-      = f.text_field :tags
+      =f.label :tags
+      =f.text_field :tags
     %p
-      = f.submit 'Create Campaign'
-      =link_to 'Back to Campaigns', campaigns_path, class: 'button primary pull-right'
+      =f.submit 'Create Campaign', class: 'button primary'
+    %p.text-center
+      =link_to 'Back to Campaigns', campaigns_path

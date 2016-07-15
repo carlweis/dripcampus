@@ -1,19 +1,20 @@
 %h6 Dashboard
-%h1 Campaigns
+%h1
+  Campaigns
+  %small.pull-right
+    =link_to 'New Campaign', new_campaign_path, class: 'button primary'
 
 %section
   %h4.text-center Search / Filter
   = render 'search'
 
-%p
+%p.text-center
   %strong
     - if @campaigns.offset_value > 0
       =@campaigns.offset_value
       of
     =@campaigns.total_count
     Campaigns
-  %span.pull-right
-    =link_to 'New Campaign', new_campaign_path, class: 'button primary'
 
 %table.tables
   %thead
