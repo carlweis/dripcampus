@@ -13,6 +13,9 @@
             = active_link_to(image_tag(image_path("dripcampus.png")), root_path)
           %li.nav-link
             = active_link_to "Sign out", destroy_user_session_path, method: :delete
+          %li.nav-link
+            %a.active=current_user.email
+
         -else
           %li.nav-link
             = active_link_to "How it Works", tour_path

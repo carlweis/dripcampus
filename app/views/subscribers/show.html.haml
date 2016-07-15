@@ -1,0 +1,12 @@
+%h6
+  Campaign:&nbsp;
+  =@campaign.name
+%h1
+  Subscriber Insights
+  %small.pull-right
+    =link_to 'Back to Subscribers', campaign_subscribers_path(params[:campaign_id])
+
+%h2.text-center="#{@subscriber.first_name} #{@subscriber.last_name}"
+%h3.text-center=@subscriber.email
+
+=render 'insights'

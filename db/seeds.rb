@@ -15,11 +15,27 @@ user = User.create!(
 
 ## Seed campaigns
 50.times do |i|
-	Campaign.create!(
+	campaign = Campaign.create!(
 		user: user,
 		name: "#{FFaker::Job.title}-#{i}",
 		description: FFaker::HipsterIpsum.paragraph,
 		tags: FFaker::HipsterIpsum.words(5).join(', '),
 		active: FFaker::Boolean.random
 	)
+
+  25.times do |j|
+    random_email = "#{FFaker::Name.first_name}#{j}@#{FFaker::Internet.domain_name}"
+    Subscriber.create!(
+      campaign: campaign,
+      email: random_email,
+      first_name: FFaker::Name.first_name,
+      last_name: FFaker::Name.last_name,
+      source: FFaker::Internet.http_url,
+      sends: rand(50),
+      opens: rand(50),
+      replies: rand(50),
+      clicks: rand(50),
+      opt_out: FFaker::Boolean.random
+    )
+  end
 end

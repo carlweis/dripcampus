@@ -1,0 +1,7 @@
+=form_tag(campaign_subscribers_path, method: :get) do
+  %fieldset
+    %p
+      %label Search
+      =text_field_tag :search, params[:search]
+    .text-center
+      =submit_tag 'Search Subscribers'

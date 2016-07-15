@@ -1,7 +1,8 @@
 class SubscribersController < ApplicationController
-  before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
+  before_action :set_campaign_and_subscriber, only: [:show, :edit, :update, :destroy]
 
   def index
+    @campaign = Campaign.find(params[:campaign_id])
     @subscribers = Subscriber.order(:email).page params[:page]
     if params[:search]
       @subscribers = Subscriber.search(params[:search]).
@@ -40,11 +41,13 @@ class SubscribersController < ApplicationController
 
   def destroy
     @subscriber.destroy
-    redirect_to subscribers_url, notice: "Subscriber was successfully deleted."
+    redirect_to subscribers_url(params[:campaign_id]),
+      notice: "Subscriber was successfully deleted."
   end
 
   private
-    def set_subscriber
+    def set_campaign_and_subscriber
+      @campaign = Campaign.find(params[:campaign_id])
       @subscriber = Subscriber.find(params[:id])
     end
 
