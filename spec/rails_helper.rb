@@ -12,11 +12,11 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include Devise::TestHelpers, type: :view
   config.include FactoryGirl::Syntax::Methods
-  config.extend ControllerMacros, :type => :controller
+  config.extend ControllerMacros, :type => :controller  
 end
 
 Shoulda::Matchers.configure do |config|
-  config.integrate do |with|    
+  config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
   end
