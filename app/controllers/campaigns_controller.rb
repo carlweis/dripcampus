@@ -23,7 +23,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_attributes)
     if @campaign.save
       redirect_to @campaign,
-      notice: "Drip Campaign #{@campaign.name} successfully created."
+        notice: "Drip Campaign #{@campaign.name} successfully created."
     else
       render :new
     end
