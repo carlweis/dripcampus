@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715180134) do
+ActiveRecord::Schema.define(version: 20160716000900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 20160715180134) do
 
   add_index "campaigns", ["name"], name: "index_campaigns_on_name", unique: true, using: :btree
   add_index "campaigns", ["user_id"], name: "index_campaigns_on_user_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "campaign_id"
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "delay",       default: 5
+    t.string   "interval",    default: "minutes"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "messages", ["campaign_id"], name: "index_messages_on_campaign_id", using: :btree
+  add_index "messages", ["subject"], name: "index_messages_on_subject", using: :btree
 
   create_table "subscribers", force: :cascade do |t|
     t.integer  "campaign_id"
@@ -81,5 +94,6 @@ ActiveRecord::Schema.define(version: 20160715180134) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "campaigns", "users"
+  add_foreign_key "messages", "campaigns"
   add_foreign_key "subscribers", "campaigns"
 end

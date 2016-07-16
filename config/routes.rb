@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :messages
   # devise routes
   devise_for :users, path: 'account', path_names: {
     sign_in:      'login',
