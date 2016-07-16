@@ -8,4 +8,5 @@ RSpec.describe Campaign, type: :model do
   # associations
   it { should belong_to(:user) }
   it { should have_many(:subscribers) }
+  it { should have_many(:messages) }
 end

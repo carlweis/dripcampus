@@ -1,5 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Message, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  # validations
+  it { should validate_presence_of(:subject) }
+  it { should validate_presence_of(:body) }
+  it { should validate_presence_of(:delay) }
+  it { should validate_presence_of(:interval) }
+  it { should validate_inclusion_of(:interval).
+       in_array(['minutes', 'hours', 'days', 'weeks']) }
+
+  # associations
+  it { should belong_to(:campaign) }
+
 end
