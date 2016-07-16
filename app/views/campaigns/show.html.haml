@@ -4,7 +4,10 @@
 .campaign-subscribers
   %h6
     Subscribers
+    %small.pull-right=link_to 'New Subscriber', new_campaign_subscriber_path(@campaign), class: 'button primary'
     %small.pull-right=link_to 'All Subscribers', campaign_subscribers_path(@campaign)
+
+
   =render 'subscribers'
 
 .campaign-messages
