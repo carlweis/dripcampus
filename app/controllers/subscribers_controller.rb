@@ -3,9 +3,9 @@ class SubscribersController < ApplicationController
   before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
 
   def index
-    @subscribers = Subscriber.order(:email).page params[:page]
+    @subscribers = @campaign.subscribers.order(:email).page params[:page]
     if params[:search]
-      @subscribers = Subscriber.search(params[:search]).
+      @subscribers = @campaign.subscribers.search(params[:search]).
         order(:email).page params[:page]
     end
   end
@@ -18,7 +18,7 @@ class SubscribersController < ApplicationController
   end
 
   def create
-    @subscriber = Subscriber.new(subscriber_attributes)
+    @subscriber = @campaign.subscribers.build(subscriber_attributes)
     if @subscriber.save
       redirect_to [@campaign, @subscriber],
         notice: "Subscriber #{@subscriber.email} successfully created."
@@ -29,7 +29,7 @@ class SubscribersController < ApplicationController
 
   private
     def set_campaign
-      @campaign = Campaign.find(params[:campaign_id])
+      @campaign = current_user.campaigns.find(params[:campaign_id])
     end
 
     def set_subscriber

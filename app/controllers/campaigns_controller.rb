@@ -3,9 +3,9 @@ class CampaignsController < ApplicationController
   before_action :set_subscribers, only: [:show]
 
   def index
-    @campaigns = Campaign.order(:name).page params[:page]
+    @campaigns = current_user.campaigns.order(:name).page params[:page]
     if params[:search]
-      @campaigns = Campaign.search(params[:search]).
+      @campaigns = current_user.campaigns.search(params[:search]).
         order(:name).page params[:page]
     end
   end
@@ -21,7 +21,7 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.new(campaign_attributes)
+    @campaign = current_user.campaigns.build(campaign_attributes)
     if @campaign.save
       redirect_to @campaign,
         notice: "Drip Campaign #{@campaign.name} successfully created."
@@ -47,7 +47,7 @@ class CampaignsController < ApplicationController
 
   private
     def set_campaign
-      @campaign = Campaign.find(params[:id])
+      @campaign = current_user.campaigns.find(params[:id])
     end
 
     def set_subscribers

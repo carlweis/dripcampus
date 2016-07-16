@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
 
   before_create :set_account_id
 
-  has_many :prospects
-  has_many :mailing_lists
+  has_many :campaigns  
 
   private
   	def set_account_id
