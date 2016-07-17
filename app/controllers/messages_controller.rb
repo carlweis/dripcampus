@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
-  before_action :set_campaign, only: [:index, :new, :create, :update, :show, :edit]
+  before_action :set_campaign, only: [:index, :new, :create, :update, :show, :edit, :destroy]
 
   def index
     @messages = @campaign.messages.order(:subject).page params[:page]
@@ -41,7 +41,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy
-    redirect_to campaign_messages_url, notice: 'Message successfully deleted.'
+    redirect_to campaign_messages_url(@campaign), notice: 'Message successfully deleted.'
   end
 
   private

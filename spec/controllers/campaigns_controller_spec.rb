@@ -38,7 +38,7 @@ RSpec.describe CampaignsController, type: :controller do
     end
 
     context "when a campaign is invalid" do
-      it "redirects to #new" do 
+      it "redirects to #new" do
         allow(@campaign).to receive(:save).and_return(false)
         allow(Campaign).to receive(:new).with(name: "").and_return(@campaign)
 
@@ -66,7 +66,7 @@ RSpec.describe CampaignsController, type: :controller do
 
     context "with invalid attributes" do
       it "redirects to #edit" do
-        
+
         allow(@campaign).to receive(:update).and_return(false)
         allow(Campaign).to receive(:find).
           with(@campaign.id).and_return(@campaign)
@@ -75,6 +75,21 @@ RSpec.describe CampaignsController, type: :controller do
 
         expect(response).to render_template(:edit)
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before { allow(controller).to receive(:current_user) { @campaign.user } }
+
+    it "deletes the campaign" do
+      expect {
+        delete :destroy, id: @campaign
+      }.to change(Campaign, :count).by(-1)
+    end
+
+    it "redirects to campaigns#index" do
+      delete :destroy, id: @campaign
+      expect(response).to redirect_to(campaigns_url)
     end
   end
 end

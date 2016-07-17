@@ -5,6 +5,7 @@ RSpec.describe MessagesController, type: :controller do
 
   before(:each) do
     @campaign = FactoryGirl.create(:campaign)
+    @message  = FactoryGirl.create(:message)
   end
 
   describe "GET #index" do
@@ -79,6 +80,21 @@ RSpec.describe MessagesController, type: :controller do
 
         expect(response).to render_template(:edit)
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before { allow(controller).to receive(:current_user) { @campaign.user } }
+
+    it "deletes the message" do
+      expect {
+        delete :destroy, id: @message, campaign_id: @campaign
+      }.to change(Message, :count).by(-1)
+    end
+
+    it "redirects to messages#index" do
+      delete :destroy, id: @message, campaign_id: @campaign
+      expect(response).to redirect_to(campaign_messages_url(@campaign))
     end
   end
 end
