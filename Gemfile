@@ -15,6 +15,7 @@ gem 'nokogiri'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'tinymce-rails'
 
 # normally only under dev/test group
 # used to seed sample data to production

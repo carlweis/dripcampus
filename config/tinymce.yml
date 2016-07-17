@@ -1,0 +1,10 @@
+toolbar:
+  - styleselect | bold italic | undo redo | image | link | table | code | lists | paste | preview
+plugins:
+  - image
+  - link
+  - table
+  - code
+  - lists
+  - preview
+  - paste

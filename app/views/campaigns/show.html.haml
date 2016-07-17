@@ -11,7 +11,6 @@
   =render 'subscribers'
 
 .campaign-messages
-  %h2 Email Messages
-
-.campaign-insights
-  %h2 Insights
+  %h2
+    Email Messages
+    %small.pull-right=link_to 'New Message', new_campaign_message_path(@campaign), class: 'button primary'

@@ -1,0 +1,21 @@
+%h6
+  Campaign:&nbsp;
+  =link_to @campaign.name, campaign_path(@campaign)
+%h1
+  Message Preview
+  %small.pull-right
+    =link_to 'Back to Messages', campaign_messages_path(params[:campaign_id])
+    %br
+    %br
+    =link_to 'Edit Message', edit_campaign_message_path(params[:campaign_id], @message), class: 'button primary'
+
+%label Subject
+%h2
+  =@message.subject
+  %small.pull-right
+    %label Delay
+    %span= "#{@message.delay} #{@message.interval}"
+
+%label Message Body
+.email-body
+  =@message.body.html_safe

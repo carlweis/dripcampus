@@ -8,7 +8,7 @@ RSpec.describe SubscribersController, type: :controller do
   end
 
   describe "GET #index" do
-
+    before { allow(controller).to receive(:current_user) { @campaign.user } }
     it "returns http success" do
       get :index, { campaign_id: @campaign.id }
       expect(response).to have_http_status(:success)
@@ -16,6 +16,7 @@ RSpec.describe SubscribersController, type: :controller do
   end
 
   describe "GET #new" do
+    before { allow(controller).to receive(:current_user) { @campaign.user } }
     it "returns http success" do
       get :new, { campaign_id: @campaign.id }
       expect(response).to have_http_status(:success)
@@ -23,6 +24,7 @@ RSpec.describe SubscribersController, type: :controller do
   end
 
   describe "POST #create" do
+    before { allow(controller).to receive(:current_user) { @campaign.user } }
     context "when subscriber is valid" do
       it "redirects to #show" do
         subscriber = FactoryGirl.create(:subscriber, email: "test@example.com")
@@ -40,7 +42,7 @@ RSpec.describe SubscribersController, type: :controller do
 
     context "when a subscriber is invalid" do
       it "redirects to #new" do
-        subscriber = double("subscriber")
+        subscriber = FactoryGirl.create(:subscriber, email: "test@example.com")
         allow(subscriber).to receive(:save).and_return(false)
         allow(Subscriber).to receive(:new).with(email: "").and_return(subscriber)
 

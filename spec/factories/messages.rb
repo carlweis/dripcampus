@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :message do
-    campaign nil
-    subject "MyString"
-    body "MyText"
+    campaign
+    subject "Email subject"
+    body "Email body"
     delay 1
-    interval "MyString"
+    interval "days"
   end
 end

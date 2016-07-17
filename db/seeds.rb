@@ -1,6 +1,8 @@
 require 'ffaker'
 
 ## clear data
+Message.delete_all
+Subscriber.delete_all
 Campaign.delete_all
 User.delete_all
 
@@ -38,4 +40,14 @@ user = User.create!(
       opt_out: FFaker::Boolean.random
     )
   end
+
+	10.times do |k|
+		Message.create!(
+			campaign: campaign,
+			subject: FFaker::Lorem.sentence,
+			body: FFaker::HTMLIpsum.body,
+			delay: rand(10),
+			interval: 'minutes'
+		)
+	end
 end

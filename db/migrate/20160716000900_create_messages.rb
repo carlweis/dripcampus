@@ -10,6 +10,6 @@ class CreateMessages < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :messages, :subject, unique: false
+    add_index :messages, :subject, unique: true
   end
 end
