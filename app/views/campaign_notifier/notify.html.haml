@@ -1,0 +1,13 @@
+%h1= @message.subject
+
+%p= "Hello, #{@subscriber.first_name},"
+
+.message-body
+  =@message.body.html_safe
+
+%p You can reply to this message or click the link within it, if you need more information.
+
+%p
+  Thank You,
+  %br
+  DripCampus
