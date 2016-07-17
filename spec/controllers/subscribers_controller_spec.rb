@@ -33,7 +33,7 @@ RSpec.describe SubscribersController, type: :controller do
           with(email: "test@example.com").
           and_return(subscriber)
 
-        post :create, {campaign_id: @campaign.id, 
+        post :create, {campaign_id: @campaign.id,
           subscriber: { email: "test@example.com" } }
 
         expect(response).to redirect_to(campaign_subscriber_path(@campaign.id, subscriber))
@@ -52,4 +52,5 @@ RSpec.describe SubscribersController, type: :controller do
       end
     end
   end
+  
 end
