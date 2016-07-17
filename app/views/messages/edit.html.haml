@@ -31,3 +31,16 @@
       =f.submit 'Update Message', class: 'button primary'
     %p.text-center
       =link_to 'Back to Messages', campaign_messages_path(@campaign)
+
+%hr
+.danger-zone
+  %h4 Danger Zone
+  %p You can delete the campaign, which will remove all subscribers and messages assosicated with this campaign.
+  %strong NOTE
+  This is ireversable.
+  %hr
+  %label{:for => "modal-1"}
+    %a.modal-trigger.button.danger Delete Message
+
+
+= render 'modal'

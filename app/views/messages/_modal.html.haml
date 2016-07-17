@@ -1,0 +1,23 @@
+.modal
+  %input#modal-1.modal-state{:type => "checkbox"}/
+  .modal-fade-screen
+    .modal-inner
+      .modal-close{:for => "modal-1"}
+      %h1.text-center
+        Are you ABSOLUTLY sure?
+      %h4
+        Delete Message:
+        =@message.subject
+      %p.modal-intro
+        This action
+        %strong CANNOT
+        be undone. This will permanetly delete the
+        %strong= @message.subject
+        email message for campaign
+        %strong= @campaign.name
+      %p.modal-content.text-center
+        .text-center
+          = button_to 'I understand the consequences, delete this message', campaign_message_path(@campaign, @message), class: 'button danger', method: :delete
+        %hr
+        %p.text-center
+          = link_to 'NO, Do not delete message', campaign_message_path(@campaign, @message), class: 'button primary'
