@@ -8,7 +8,5 @@
   -@campaign.messages.each do |message|
     %tr
       %td=link_to message.subject, campaign_message_path(@campaign, message)
-      %td=message.delay
+      %td=message.wait
       %td=message.interval
-
-
