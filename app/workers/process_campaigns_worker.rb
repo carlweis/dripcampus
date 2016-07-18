@@ -9,8 +9,7 @@ class ProcessCampaignsWorker
       user.campaigns.each do |campaign|
         # we need to schedule a job for each subscriber
         campaign.subscribers.each do |subscriber|
-          # kick off the sidekiq job to process the campaign
-          logger.info "Processing Campaign #{campaign.id} for User: #{user.id} and Subscriber #{subscriber.id}"
+          # kick off the sidekiq job to process the campaign          
           CampaignWorker.perform_async(user.id, campaign.id, subscriber.id)
         end
       end
