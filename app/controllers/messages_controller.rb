@@ -55,7 +55,7 @@ class MessagesController < ApplicationController
 
     def message_attributes
       params.require(:message).permit(
-        :campaign_id, :subject, :body, :delay, :interval
+        :campaign_id, :subject, :body, :wait, :interval
       )
     end
 end

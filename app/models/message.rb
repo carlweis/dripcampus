@@ -3,7 +3,7 @@ class Message < ActiveRecord::Base
 
   validates :subject, presence: true
   validates :body, presence: true
-  validates :delay, presence: true
+  validates :wait, presence: true
   validates :interval, presence: true, inclusion: ['minutes', 'hours', 'days', 'weeks']
 
   def self.search(search)

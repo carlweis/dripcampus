@@ -46,7 +46,7 @@ user = User.create!(
 			campaign: campaign,
 			subject: FFaker::Lorem.sentence,
 			body: FFaker::HTMLIpsum.body,
-			delay: rand(10),
+			wait: rand(10),
 			interval: 'minutes'
 		)
 	end

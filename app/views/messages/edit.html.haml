@@ -22,8 +22,8 @@
       =f.text_area :body, class: 'tinymce', rows: 20, cols: 120
       =tinymce
     %p
-      =f.label :delay
-      =f.number_field :delay
+      =f.label :wait
+      =f.number_field :wait
     %p
       =f.label :interval
       =f.collection_select :interval, ['seconds', 'minutes', 'days', 'weeks'], :to_s, :to_s, include_blank: false

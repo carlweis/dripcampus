@@ -17,6 +17,11 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'tinymce-rails'
 
+# sidekiq gems
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+
 # normally only under dev/test group
 # used to seed sample data to production
 gem 'ffaker'

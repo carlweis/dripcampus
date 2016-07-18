@@ -33,14 +33,14 @@ ActiveRecord::Schema.define(version: 20160716000900) do
     t.integer  "campaign_id"
     t.string   "subject"
     t.text     "body"
-    t.integer  "delay",       default: 5
+    t.integer  "wait",        default: 5
     t.string   "interval",    default: "minutes"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
 
   add_index "messages", ["campaign_id"], name: "index_messages_on_campaign_id", using: :btree
-  add_index "messages", ["subject"], name: "index_messages_on_subject", using: :btree
+  add_index "messages", ["subject"], name: "index_messages_on_subject", unique: true, using: :btree
 
   create_table "subscribers", force: :cascade do |t|
     t.integer  "campaign_id"

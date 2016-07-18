@@ -22,14 +22,14 @@
   %thead
     %tr
       %th{style: 'width:25%;'} Subject
-      %th{style: 'width:8%; text-align:center;'} Delay
+      %th{style: 'width:8%; text-align:center;'} Wait
       %th{style: 'width:8%; text-align:center;'} Interval
   %tbody
   - @messages.each do |message|
     %tr
       %td
-        %strong=link_to message.subject, campaign_message_path(params[:campaign_id], message)      
-      %td{style: 'text-align: center;'}=message.delay
+        %strong=link_to message.subject, campaign_message_path(params[:campaign_id], message)
+      %td{style: 'text-align: center;'}=message.wait
       %td{style: 'text-align: center;'}=message.interval
 
 =paginate @messages

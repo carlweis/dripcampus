@@ -4,7 +4,7 @@ class CreateMessages < ActiveRecord::Migration
       t.references :campaign, index: true, foreign_key: true
       t.string :subject
       t.text :body
-      t.integer :delay, default: 5
+      t.integer :wait, default: 5
       t.string :interval, default: 'minutes'
 
       t.timestamps null: false

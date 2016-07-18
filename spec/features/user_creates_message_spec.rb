@@ -19,7 +19,7 @@ feature "user creates message" do
     # add subscriber to campaign
     fill_in "message_subject", with: "test subject"
     fill_in "message_body", with: "<p>Message body</p>"
-    fill_in "message_delay", with: 10
+    fill_in "message_wait", with: 10
     select "minutes", from: "message_interval"
 
     click_button "Create Message"

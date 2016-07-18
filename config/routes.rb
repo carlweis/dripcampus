@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
 
   resources :messages
@@ -20,11 +22,10 @@ Rails.application.routes.draw do
   # Campaign routes
   get 'dashboard' => 'campaigns#index', as: 'dashboard'
   resources :campaigns do
-    # campaign message routes
     resources :messages
-
-    # campaign subscriber routes
     resources :subscribers, only:[:index, :show, :new, :create]
   end
 
+  #sidekiq route
+  mount Sidekiq::Web, at: '/sidekiq'
 end
