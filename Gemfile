@@ -21,6 +21,7 @@ gem 'tinymce-rails'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'redis'
 
 # normally only under dev/test group
 # used to seed sample data to production
