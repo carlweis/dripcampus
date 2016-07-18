@@ -41,8 +41,6 @@ group :development, :test do
   gem 'fuubar'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'poltergeist'
-  gem 'teaspoon-jasmine'
 end
 
 group :development do

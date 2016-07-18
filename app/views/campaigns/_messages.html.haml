@@ -1,0 +1,14 @@
+%table.tables
+  %tbody
+    %tr
+      %th Subject
+      %th{style: 'width:8%'} Delay
+      %th{style: 'width:8%'}  Interval
+  %tbody
+  -@campaign.messages.each do |message|
+    %tr
+      %td=link_to message.subject, campaign_message_path(@campaign, message)
+      %td=message.delay
+      %td=message.interval
+
+
