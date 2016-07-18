@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV['SENDGRID_USERNAME']
+  default from: "app53791793@heroku.com"
   layout 'mailer'
 end
