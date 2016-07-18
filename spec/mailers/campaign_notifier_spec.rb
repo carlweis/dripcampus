@@ -10,7 +10,7 @@ RSpec.describe CampaignNotifier, type: :mailer do
     it "renders the headers" do
       expect(mail.subject).to eq(message.subject)
       expect(mail.to).to eq([subscriber.email])
-      expect(mail.from).to eq(["dripcampus@gmail.com"])
+      expect(mail.from).to eq(["app53791793@heroku.com"])
     end
 
     it "renders the subject" do
