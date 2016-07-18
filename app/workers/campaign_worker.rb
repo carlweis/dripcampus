@@ -7,7 +7,7 @@ class CampaignWorker
     campaign.messages.each do |message|
       SubscriberWorker.perform_in(
         eval("#{message.wait}.#{message.interval}"),
-        user_id, campaign_id, subscriber_id, message_id
+        user_id, campaign_id, subscriber_id, message.id
       )
     end
   end
