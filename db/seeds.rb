@@ -16,7 +16,7 @@ user = User.create!(
 )
 
 ## Seed campaigns
-50.times do |i|
+1.times do |i|
 	campaign = Campaign.create!(
 		user: user,
 		name: "#{FFaker::Job.title}-#{i}",
@@ -25,7 +25,7 @@ user = User.create!(
 		active: FFaker::Boolean.random
 	)
 
-  25.times do |j|
+  1.times do |j|
     random_email = "#{FFaker::Name.first_name}#{j}@#{FFaker::Internet.domain_name}"
     Subscriber.create!(
       campaign: campaign,
@@ -41,7 +41,7 @@ user = User.create!(
     )
   end
 
-	10.times do |k|
+	1.times do |k|
 		Message.create!(
 			campaign: campaign,
 			subject: FFaker::Lorem.sentence,
