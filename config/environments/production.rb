@@ -24,6 +24,18 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  # Use gmail for sending emails...due to issue with sendgrid limit.
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'gmail.com',
+    :user_name => ENV['GMAIL_USER_NAME'],
+    :password => ENV['GMAIL_PASSWORD'],
+    :authentication => 'plain',
+    :enable_starttls_auto => true
+  }
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
